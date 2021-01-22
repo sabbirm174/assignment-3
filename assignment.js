@@ -30,7 +30,7 @@ function budgetCalculator(watch, phone, laptop) {
 
 function hotelCost(days) {
     let totalCost = 0;
-    if (days >= 0) {
+    if (days >= 0 && days === parseInt(days, 10)) {
         if (days <= 10) { // first ten days
             totalCost = days * 100; // first ten days result
         } else if (days <= 20) { // second ten days
@@ -46,7 +46,7 @@ function hotelCost(days) {
             totalCost = firstTen + secondTen + otherDays; // other days result
         }
     } else {
-        return "invalid days" 
+        return "please input valid days" 
     }
     return totalCost; // final result
 }
@@ -56,12 +56,18 @@ function hotelCost(days) {
 function megaFriend(arr) {
     let arrLen = 0;
     let result;
-    for (var i = 0; i < arr.length; i++) {  
-        if (arr[i].length > arrLen) {
-            arrLen = arr[i].length;
-            result = arr[i];
+    if(arr.length != 0){    // if array valule not is empty
+        for (var i = 0; i < arr.length; i++) {  
+            if (arr[i].length > arrLen) {
+                arrLen = arr[i].length;
+                result = arr[i];
+            }
         }
+    }
+    else{
+        return "empty array"    // if array valule is empty
     }
     return result;
 }
 // ---------------- End-megaFriend ---------------- //
+
