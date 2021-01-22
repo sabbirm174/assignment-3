@@ -62,15 +62,20 @@ function hotelCost(days) {
 function megaFriend(arr) {
     let arrLen = 0;
     let result;
-    if (arr.length != 0) {      // if array valule is not empty
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i].length > arrLen) {
-                arrLen = arr[i].length;
-                result = arr[i];
+    if(Array.isArray(arr)){         // input value must be an array
+        if (arr.length != 0) {      // if array valule is not empty
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].length > arrLen) {
+                    arrLen = arr[i].length;
+                    result = arr[i];
+                }
             }
+        } else {
+            return "empty array"    // if array valule is empty
         }
-    } else {
-        return "empty array"    // if array valule is empty
+    }
+    else {
+        return "input value must be an array"
     }
     return result;
 }
